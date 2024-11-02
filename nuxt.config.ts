@@ -8,7 +8,7 @@ export default {
     },
   },
   build: {
-    transpile: ['gsap'],
+    // transpile: ['gsap'],
   },
   modules: [
     '@hypernym/nuxt-gsap',  // Seul le bon module est utilisé
