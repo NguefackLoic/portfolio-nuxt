@@ -16,7 +16,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@iconify/vue": "^4.1.2",
     "autoprefixer": "^10.4.20",
-    
+    "emailjs-com": "^3.2.0",
     "nuxt": "^3.13.2",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
