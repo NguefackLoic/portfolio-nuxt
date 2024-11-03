@@ -37,8 +37,8 @@ const props = defineProps({
 });
 
 const name = 'LOIC Nguefack';
-const lightPhoto = 'profile-pic.png';
-const darkPhoto = 'profile-pic (1).png';
+const lightPhoto = 'profile-light.png';
+const darkPhoto = 'profile-dark.png';
 
 const presentation = `Je suis un développeur frontend passionné, spécialisé en Nuxt.js, Tailwind CSS et GSAP.`;
 const socialLinks = [
