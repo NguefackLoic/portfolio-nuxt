@@ -27,7 +27,4 @@
     "@hypernym/nuxt-gsap": "^2.4.3",
     "@iconify-json/logos": "^1.2.3"
   },
-"engines": {
-    "node": "18.x"
-  }
 }
