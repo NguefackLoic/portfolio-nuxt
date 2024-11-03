@@ -76,5 +76,10 @@ const currentPhoto = computed(() => {
     animation: typewriter 3.5s steps(40) 1s 1 normal both,
     blinkTextCursor 800ms steps(40) infinite normal;
 }
+
+.loader {
+  border-color: #f3f3f3; 
+  border-top-color: #581845; 
+}
 </style>
 

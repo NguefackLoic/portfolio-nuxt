@@ -49,7 +49,7 @@
         <li><a href="#stack" @click.prevent="scrollTo('stack')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Ma Stack</a></li>
         <li><a href="#projects" @click.prevent="scrollTo('projects')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Projets</a></li>
         <li><a href="#contact" @click.prevent="scrollTo('contact')" class="text-gray-900 dark:text-white hover:underline hover:text-[#581845]">Contact</a></li>
-        <button @click="openModal" class="bg-[#581845] text-white py-2 px-4 rounded hover:bg-[#3f1131] transition duration-200 ease-in-out shadow-md hover:shadow-lg">Obtenir un devis</button>   
+        <button @click="openModal" class="bg-[#581845] text-white py-2 px-4 rounded hover:bg-[#3f1131] transition duration-200 ease-in-out shadow-md hover:shadow-lg">Get a quote</button>   
       </ul>
 
       <!-- Menu Mobile -->
@@ -58,7 +58,7 @@
         <li><a href="#stack" @click.prevent="scrollTo('stack')" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Ma Stack</a></li>
         <li><a href="#projects" @click.prevent="scrollTo('projects')" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Projets</a></li>
         <li><a href="#contact" @click.prevent="scrollTo('contact')" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Contact</a></li>
-        <button @click="openModal" class="bg-[#581845] text-white py-2 px-4 rounded hover:bg-[#3f1131] transition duration-200 ease-in-out shadow-md hover:shadow-lg">Obtenir un devis</button>   
+        <button @click="openModal" class="bg-[#581845] text-white py-2 px-4 rounded hover:bg-[#3f1131] transition duration-200 ease-in-out shadow-md hover:shadow-lg">Get a quote</button>   
       </ul>
     </nav>
 
@@ -66,23 +66,41 @@
     <transition name="modal">
       <div v-if="isModalOpen" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-30" @click="closeModal">
         <div class="bg-white dark:bg-gray-800 w-3/4 max-w-2xl p-6 rounded-lg shadow-lg transition-transform transform" @click.stop>
-          <h2 class="text-lg font-bold mb-4 dark:text-white">Demande de devis</h2>
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Request for Quote</h2>
           <form @submit.prevent="submitForm">
+
             <div class="mb-4">
-              <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nom</label>
-              <input type="text" v-model="form.name" id="name" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+              <input placeholder="Name" type="text" v-model="form.name" id="name" class="mt-1 block w-full border border-gray-300 rounded-md p-2 dark:bg-gray-800 dark:border-gray-700 dark:text-white" required>
             </div>
+
             <div class="mb-4">
-              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
-              <input type="email" v-model="form.email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+              <input placeholder="E-mail" type="email" v-model="form.email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md p-2 dark:bg-gray-800 dark:border-gray-700 dark:text-white" required>
             </div>
+
             <div class="mb-4">
-              <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
-              <textarea v-model="form.message" id="message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required></textarea>
+              <input placeholder="Company" type="text" v-model="form.company" id="company" class="mt-1 block w-full border border-gray-300 rounded-md p-2 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+            </div>
+
+            <div class="mb-4">
+              <select v-model="form.service" id="service" class="mt-1 block w-full border border-gray-300 rounded-md p-2 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                <option value="" disabled selected>Select a requested service</option>
+                <option value="web_development">Web Development</option>
+                <option value="mobile_app">Mobile Application</option>
+                <option value="seo">SEO</option>
+                <option value="consulting">Consultation</option>
+                <option value="others">Others</option>
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <textarea placeholder="Message" v-model="form.message" id="message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md p-2 dark:bg-gray-800 dark:border-gray-700 dark:text-white" required></textarea>
             </div>
             <div class="flex justify-end">
-              <button type="button" @click="closeModal" class="mr-2 text-gray-600">Annuler</button>
-              <button type="submit" class="bg-[#581845] text-white py-2 px-4 rounded hover:bg-[#3f1131] transition duration-200 ease-in-out">Envoyer</button>
+              <button type="button" @click="closeModal" class="mr-2 text-gray-600">Cancel</button>
+              <button type="submit" :disabled="isLoading" class="bg-[#581845] text-white py-2 px-4 rounded hover:bg-[#3f1131] transition duration-200 ease-in-out flex items-center justify-center">
+                <span>Send request</span>
+                <span v-if="isLoading" class="loader w-4 h-4 border-2 ml-3 border-white border-t-transparent rounded-full animate-spin mr-2"></span>
+              </button>
             </div>
           </form>
         </div>
@@ -93,6 +111,7 @@
 
 <script setup>
 import { onMounted, onUnmounted, defineProps, ref } from 'vue';
+import emailjs from 'emailjs-com';
 
 const props = defineProps({
   isDarkMode: Boolean,
@@ -101,9 +120,12 @@ const props = defineProps({
 
 const isScrolled = ref(false);
 const isModalOpen = ref(false);
+const isLoading = ref(false);
 const form = ref({
   name: '',
   email: '',
+  company: '',
+  service: '',
   message: ''
 });
 
@@ -126,15 +148,39 @@ const closeModal = () => {
   isModalOpen.value = false;
 };
 
-const submitForm = () => {
-  if (!form.value.name || !form.value.email || !form.value.message) {
-    console.error("Tous les champs doivent être remplis");
-    return;
-  }
-  console.log('Form Submitted:', form.value);
-  closeModal();
-};
+const submitForm = async () => {
+  isLoading.value = true;
+  console.log(isLoading.value)
 
+  try {
+    const response = await emailjs.send(
+      'service_k9bocri',
+      'template_ji048tf', 
+      {
+        name: form.value.name,
+        email: form.value.email,
+        company: form.value.company,
+        service: form.value.service,
+        message: form.value.message
+      },
+      'uyXg9psUP1sprSukT' 
+    );
+
+    console.log('Email envoyé avec succès !', response);
+    form.value = {
+      name: '',
+      email: '',
+      company: '',
+      service: '',
+      message: ''
+    };
+    closeModal();
+  } catch (error) {
+    console.error('Erreur lors de l\'envoi de l\'email :', error);
+  } finally {
+    isLoading.value = false;
+  }
+};
 
 
 onMounted(() => {
