@@ -13,8 +13,8 @@
                   <h2 class="text-xl line-1 anim-typewriter text-shadow dark:text-shadow-dark"> Frontend Developer - Designer </h2>
               </span>
             <p class="text-lg text-gray-700 dark:text-gray-300" style="line-height: 1.5;">
-              Passionné, avec 3 ans d'expérience dans la création d'interfaces web engageantes et intuitives. 
-              Je suis spécialisé dans la réalisation d'applications réactives qui améliorent l'expérience utilisateur et favorisent l'interaction.
+              Passionate, with 3 years of experience in creating engaging and intuitive web interfaces.
+              I specialize in building responsive applications that improve the user experience and promote interaction.
             </p>
           </h2>
           <div class="mt-6">

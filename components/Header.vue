@@ -1,5 +1,12 @@
 <template>
-  <header ref="header" class="transition-all duration-500 ease-in-out bg-white dark:bg-gray-900 py-4 shadow-lg fixed w-full top-0 z-10">
+  <header
+    ref="header"
+    :class="[
+      'fixed w-full top-0 z-10 transition-all duration-500 ease-in-out shadow-lg',
+      isScrolled ? 'bg-opacity-90 py-2' : 'bg-opacity-100 py-4',
+      'bg-white dark:bg-gray-900'
+    ]"
+  >
     <nav class="container mx-auto flex justify-between items-center px-4 md:px-8 lg:px-16">
       <h1 class="text-2xl font-bold text-[#581845] dark:text-[#631f4d] text-shadow">LOIC Nguefack</h1>
       <button @click="toggleDarkMode" class="p-2 bg-gray-200 dark:bg-gray-800 rounded-full">
@@ -16,19 +23,19 @@
 
       <!-- Menu Desktop -->
       <ul class="hidden md:flex space-x-4 items-center">
-        <li><a href="#about" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">About</a></li>
-        <li><a href="#stack" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Ma Stack</a></li>
-        <li><a href="#projects" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Projets</a></li>
-        <li><a href="#contact" class="text-gray-900 dark:text-white hover:underline hover:text-[#581845]">Contact</a></li>
+        <li><a href="#about" @click.prevent="scrollTo('about')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">About</a></li>
+        <li><a href="#stack" @click.prevent="scrollTo('stack')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Ma Stack</a></li>
+        <li><a href="#projects" @click.prevent="scrollTo('projects')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Projets</a></li>
+        <li><a href="#contact" @click.prevent="scrollTo('contact')" class="text-gray-900 dark:text-white hover:underline hover:text-[#581845]">Contact</a></li>
         <button class="bg-[#581845] text-white py-2 px-4 rounded hover:bg-[#3f1131] transition duration-200 ease-in-out shadow-md hover:shadow-lg">Obtenir un devis</button>   
       </ul>
 
       <!-- Menu Mobile -->
       <ul v-if="isMenuOpen" class="flex flex-col md:hidden absolute bg-white dark:bg-gray-900 w-full left-0 top-16 z-20 shadow-lg">
-        <li><a href="#about" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">About</a></li>
-        <li><a href="#stack" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">My Stack</a></li>
-        <li><a href="#projects" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Projects</a></li>
-        <li><a href="#contact" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Contact</a></li>
+        <li><a href="#about" @click.prevent="scrollTo('about')" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">About</a></li>
+        <li><a href="#stack" @click.prevent="scrollTo('stack')" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Ma Stack</a></li>
+        <li><a href="#projects" @click.prevent="scrollTo('projects')" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Projets</a></li>
+        <li><a href="#contact" @click.prevent="scrollTo('contact')" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Contact</a></li>
         <button class="bg-[#581845] text-white py-2 px-4 rounded hover:bg-[#3f1131] transition duration-200 ease-in-out shadow-md hover:shadow-lg">Obtenir un devis</button>   
       </ul>
     </nav>
@@ -36,16 +43,39 @@
 </template>
 
 <script setup>
-import { defineProps, ref } from 'vue';
+import { onMounted, onUnmounted, defineProps, ref } from 'vue';
 
 const props = defineProps({
   isDarkMode: Boolean,
   toggleDarkMode: Function,
 });
 
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 50;
+};
+
+const scrollTo = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 
 const isMenuOpen = ref(false);
 </script>
 
 <style scoped>
+html {
+  scroll-behavior: smooth; 
+}
 </style>
