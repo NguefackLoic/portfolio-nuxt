@@ -42,10 +42,10 @@ const darkPhoto = 'profile-dark.png';
 
 const presentation = `Je suis un développeur frontend passionné, spécialisé en Nuxt.js, Tailwind CSS et GSAP.`;
 const socialLinks = [
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/loic', icon: 'linkedin' },
-  { name: 'GitHub', url: 'https://github.com/loic', icon: 'github' },
-  { name: 'GitLab', url: 'https://gitlab.com/loic', icon: 'gitlab'},
-  { name: 'X', url: 'https://x.com/loic', icon: 'x-twitter' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/loic-nguefack/', icon: 'linkedin' },
+  { name: 'GitHub', url: 'https://github.com/NguefackLoic', icon: 'github' },
+  { name: 'GitLab', url: 'https://gitlab.com/NguefackLoic', icon: 'gitlab'},
+  { name: 'X', url: 'https://x.com/L_nguefack', icon: 'x-twitter' },
   { name: 'Discord', url: 'https://discord.com/', icon: 'discord' },
   { name: 'Instagram', url: 'https://instagram.com/loic', icon: 'instagram'},
   { name: 'WhatsApp', url: 'https://whatsApp.com/loic', icon: 'whatsapp'}
