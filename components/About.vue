@@ -22,6 +22,7 @@
               <font-awesome-icon :icon="['fab', link.icon]" class="mr-1 text-2xl" /> 
             </a>
           </div>
+          <div class="mt-5"><a href="#contact" @click.prevent="scrollTo('contact')" class="bg-[#581845] text-white py-2 px-4 rounded hover:bg-[#3f1131] transition duration-200 ease-in-out shadow-xl hover:shadow-3xl">Get in touch</a></div>
         </div>
       </div>
     </div>
@@ -46,10 +47,18 @@ const socialLinks = [
   { name: 'GitHub', url: 'https://github.com/NguefackLoic', icon: 'github' },
   { name: 'GitLab', url: 'https://gitlab.com/NguefackLoic', icon: 'gitlab'},
   { name: 'X', url: 'https://x.com/L_nguefack', icon: 'x-twitter' },
-  { name: 'Discord', url: 'https://discord.com/', icon: 'discord' },
-  { name: 'Instagram', url: 'https://instagram.com/loic', icon: 'instagram'},
-  { name: 'WhatsApp', url: 'https://whatsApp.com/loic', icon: 'whatsapp'}
+  //{ name: 'Discord', url: 'https://discord.com/', icon: 'discord' },
+  //{ name: 'Instagram', url: 'https://instagram.com/loic', icon: 'instagram'},
+  { name: 'WhatsApp', url: 'https://whatsApp.com/loic', icon: 'whatsapp'},
+  //{ name: 'Mailchimp', url: 'https://whatsApp.com/loic', icon: 'mailchimp'}
 ];
+
+const scrollTo = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 const currentPhoto = computed(() => {
   return props.isDarkMode ? darkPhoto : lightPhoto;

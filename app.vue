@@ -1,6 +1,5 @@
 <template>
   <div class="dark:bg-gray-900 transition-colors duration-300">
-    <!-- Loader -->
     <Loader v-if="isLoading" />
 
     <template v-else>

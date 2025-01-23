@@ -49,6 +49,7 @@
         <li><a href="#stack" @click.prevent="scrollTo('stack')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Ma Stack</a></li>
         <li><a href="#projects" @click.prevent="scrollTo('projects')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Projets</a></li>
         <li><a href="#contact" @click.prevent="scrollTo('contact')" class="text-gray-900 dark:text-white hover:underline hover:text-[#581845]">Contact</a></li>
+        <li><a href="#contact" @click.prevent="scrollTo('contact')" class="text-gray-900 dark:text-white hover:underline hover:text-[#581845]">Blog</a></li>
         <button @click="openModal" class="bg-[#581845] text-white py-2 px-4 rounded hover:bg-[#3f1131] transition duration-200 ease-in-out shadow-md hover:shadow-lg">Get a quote</button>   
       </ul>
 
@@ -58,6 +59,7 @@
         <li><a href="#stack" @click.prevent="scrollTo('stack')" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Ma Stack</a></li>
         <li><a href="#projects" @click.prevent="scrollTo('projects')" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Projets</a></li>
         <li><a href="#contact" @click.prevent="scrollTo('contact')" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Contact</a></li>
+        <li><a href="#contact" @click.prevent="scrollTo('contact')" class="block px-4 py-2 text-gray-900 dark:text-white hover:text-[#581845] hover:underline">BLog</a></li>
         <button @click="openModal" class="bg-[#581845] text-white py-2 px-4 rounded hover:bg-[#3f1131] transition duration-200 ease-in-out shadow-md hover:shadow-lg">Get a quote</button>   
       </ul>
     </nav>

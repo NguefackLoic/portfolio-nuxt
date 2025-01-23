@@ -2,7 +2,7 @@
   <section ref="stackSection" id="stack" class="py-20 transition-all duration-500 ease-in-out bg-white dark:bg-gray-900 text-center">
     <div class="mx-2 md:mx-4 lg:mx-6">
       <h2 class="text-4xl font-bold text-gray-900 text-shadow dark:text-white mb-6">My Stack</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-4">
         <div
           v-for="tech in stack"
           :key="tech.name"
@@ -23,15 +23,16 @@
 import { onMounted, ref } from 'vue'
 const hovered = ref(null)
 // const { $gsap } = useNuxtApp() 
-const stackSection = ref(null)  // Référence à la section "stack"
+const stackSection = ref(null)  
 
 const stack = [
-  { name: 'Nuxt.js', logo: 'logos/LogosNuxt.png', color: '#00DC82' }, // couleur verte
-  { name: 'Vue.js', logo: '/logos/LogosVue.png', color: '#42B883' }, // couleur verte Vue
-  { name: 'Angular', logo: '/logos/LogosAngular.png', color: '#DD0031' }, // couleur rouge Angular
-  { name: 'Express', logo: '/logos/LogosExpress.png', color: '#303030' }, // couleur grise Express
-  { name: 'Tailwind CSS', logo: '/logos/LogosTailwind.png', color: '#38B2AC' }, // couleur bleue Tailwind
-  { name: 'Figma', logo: '/logos/LogosFigma.png', color: '#F24E1E' }, // couleur orange Figma
+  { name: 'Nuxt.js', logo: 'logos/LogosNuxt.png', color: '#00DC82' }, 
+  { name: 'Vue.js', logo: '/logos/LogosVue.png', color: '#42B883' },
+  { name: 'Angular', logo: '/logos/LogosAngular.png', color: '#DD0031' },
+  { name: 'Express', logo: '/logos/LogosExpress.png', color: '#303030' }, 
+  { name: 'Tailwind CSS', logo: '/logos/LogosTailwind.png', color: '#38B2AC' }, 
+  { name: 'Figma', logo: '/logos/LogosFigma.png', color: '#F24E1E' },
+  { name: 'Odoo', logo: '/logos/LogosOdoo.png', color: '#af619d' },
 ]
 
 onMounted(() => {
