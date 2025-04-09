@@ -8,7 +8,7 @@
     ]"
   >
     <nav class="container mx-auto flex justify-between items-center px-4 md:px-8 lg:px-16">
-      <h1 class="text-2xl font-bold text-[#581845] dark:text-[#631f4d] text-shadow">LOIC Nguefack</h1>
+      <img src="/public/logo.png" alt="logo" class="h-12 " srcset="">
       <button @click="toggleDarkMode" class="p-2 bg-gray-200 dark:bg-gray-800 rounded-full">
         <span v-if="isDarkMode" class="text-yellow-400">🌙</span>
         <span v-else class="text-gray-800">☀️</span>
