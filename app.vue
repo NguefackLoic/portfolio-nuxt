@@ -8,10 +8,12 @@
         <main class="pt-16">
           <About :isDarkMode="isDarkMode" />
           <Stack />
+          <Services />
           <Projects />
           <Contact />
         </main>
         <Footer />
+        <ScrollTop />
       </div>
     </template>
   </div>
@@ -25,6 +27,8 @@ import Projects from '/components/Projects.vue'
 import Contact from '/components/Contact.vue'
 import Footer from '/components/Footer.vue'
 import Loader from '/components/Loader.vue'
+import Services from '/components/Services.vue'
+import ScrollTop from './components/ScrollTop.vue'
 import { ref, onMounted } from 'vue';
 
 const isLoading = ref(true);

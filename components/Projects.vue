@@ -1,9 +1,9 @@
 <template>
-  <section id="projects" class="py-20 transition-all duration-500 ease-in-out bg-gray-100 dark:bg-gray-800 text-center">
+  <section id="projects" class="py-20 transition-all duration-500 ease-in-out bg-white dark:bg-gray-900 text-center">
     <div class="mx-2 md:mx-4 lg:mx-6">
       <h2 class="text-4xl font-bold text-gray-900 text-shadow dark:text-white mb-6">My Projects</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div v-for="project in projects" :key="project.name" class="project-card p-4 bg-white dark:bg-gray-900 shadow-md rounded-lg">
+        <div v-for="project in projects" :key="project.name" class="project-card p-4 bg-gray-100 dark:bg-gray-800 shadow-md rounded-lg">
           <img :src="project.image" alt="Project image" class="h-48 w-full object-cover rounded-md mb-4">
           <h3 class="text-2xl font-bold text-gray-900 dark:text-white">{{ project.name }}</h3>
           <p class="text-gray-700 dark:text-gray-300">{{ project.description }}</p>

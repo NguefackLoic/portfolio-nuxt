@@ -45,8 +45,9 @@
 
       <!-- Menu Desktop -->
       <ul class="hidden md:flex space-x-4 items-center">
-        <li><a href="#about" @click.prevent="scrollTo('about')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">About</a></li>
-        <li><a href="#stack" @click.prevent="scrollTo('stack')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Ma Stack</a></li>
+        <!--li><a href="#about" @click.prevent="scrollTo('about')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">About</a></li-->
+        <li><a href="#stack" @click.prevent="scrollTo('stack')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">My Stack</a></li>
+        <li><a href="#services" @click.prevent="scrollTo('services')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Services</a></li>
         <li><a href="#projects" @click.prevent="scrollTo('projects')" class="text-gray-900 dark:text-white hover:text-[#581845] hover:underline">Projets</a></li>
         <li><a href="#contact" @click.prevent="scrollTo('contact')" class="text-gray-900 dark:text-white hover:underline hover:text-[#581845]">Contact</a></li>
         <li><a href="#contact" @click.prevent="scrollTo('contact')" class="text-gray-900 dark:text-white hover:underline hover:text-[#581845]">Blog</a></li>
