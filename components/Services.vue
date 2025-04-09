@@ -19,33 +19,33 @@
   const services = [
     {
       icon: '💻',
-      title: 'Développement Web',
-      description: 'Création de sites web modernes, performants et responsives adaptés à vos besoins.',
+      title: 'Web Development',
+      description: 'Creation of modern, high-performance and responsive websites adapted to your needs.',
     },
     {
       icon: '📱',
-      title: 'Applications Mobiles',
-      description: 'Conception d\'applications mobiles intuitives pour Android et iOS.',
+      title: 'Mobile Applications',
+      description: 'Design of intuitive mobile applications for Android and iOS.',
     },
     {
       icon: '🧩',
-      title: 'Intégration Odoo',
-      description: 'Personnalisation et déploiement de modules Odoo pour votre entreprise.',
+      title: 'Odoo Integration',
+      description: 'Customization and deployment of Odoo modules for your business.',
     },
     {
       icon: '🛠️',
-      title: 'Consulting IT',
-      description: 'Accompagnement stratégique pour vos projets technologiques.',
+      title: 'IT Consulting',
+      description: 'Strategic support for your technology projects.',
     },
     {
       icon: '🎯',
       title: 'SEO & Performance',
-      description: 'Optimisation de votre site pour un meilleur référencement et une meilleure vitesse.',
+      description: 'Optimizing your site for better SEO and speed.',
     },
     {
       icon: '🎨',
-      title: 'Design UI/UX',
-      description: 'Création de maquettes ergonomiques et esthétiques pour améliorer l’expérience utilisateur.',
+      title: 'UI/UX Design',
+      description: 'Creation of ergonomic and aesthetic models to improve the user experience.',
     },
   ]
   </script>
